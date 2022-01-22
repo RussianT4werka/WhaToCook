@@ -1,0 +1,78 @@
+﻿<Window x:Class="WhaToCook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WhaToCook"
+        mc:Ignorable="d"
+        Title="WhaToCook" Height="557.69" Width="800" FontFamily="Segoe Print">
+    <Window.Resources>
+        <ContextMenu x:Key="listMenu">
+            <MenuItem Header="Добавить" Click="AddFood"/>
+            <MenuItem Header="Удалить" Click="DeleteFood"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Фон меню.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="1">
+            <Menu.Background>
+                <ImageBrush/>
+            </Menu.Background>
+            <MenuItem Header="              Справочники" Width="236" Height="29" FontFamily="Segoe Print" FontWeight="Bold" >
+                <MenuItem Header="Завтрак/Обед/Ужин" Click="OpenBLD" Margin="0,0,14.4,0"/>
+                <MenuItem Header="Сложность изготовления" Click="OpenDifficulty" Margin="0,0,-16.4,0"/>
+                <MenuItem Header="Кол-во порций" Click="OpenKP"/>
+                <MenuItem Header="Тип" Click="OpenTip"/>
+            </MenuItem>
+        </Menu>
+        <Menu Grid.Column="2">
+            <Menu.Background>
+                <ImageBrush/>
+            </Menu.Background>
+            <Label Content="                         Информация о блюде" FontFamily="Segoe Print" Height="27" Width="387" FontWeight="Bold" />
+        </Menu>
+        <ListBox Grid.Row="1" SelectedItem="{Binding SelectedFood}"
+                 ItemsSource="{Binding Foods}" 
+                 DisplayMemberPath="Nazv" 
+                 ContextMenu="{StaticResource listMenu}" FontWeight="Bold"
+                 >
+            <ListBox.Background>
+                <ImageBrush/>
+            </ListBox.Background>
+        </ListBox>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <StackPanel 
+                DataContext="{Binding SelectedFood}"
+                Orientation="Vertical">
+                <Label Content="Название"/>
+                <TextBox Text="{Binding Nazv}" Height="23" Margin="0,0,-0.2,0"/>
+                <Label Content="Рецепт"/>
+                <TextBox x:Name="Recept" Text="{Binding Recept}" Height="122" Margin="0,0,-0.2,0" />
+                <Label Content="Интересное"/>
+                <TextBox Text="{Binding Interesting}" Height="40" Margin="0,0,-0.2,0"/>
+            </StackPanel>
+            <Label Content="Завтрак/Обед/Ужин"/>
+            <ComboBox ItemsSource="{Binding BLD}" 
+                      SelectedItem="{Binding SelectedFood.BLD}"
+                      DisplayMemberPath="bld" Cursor="Hand"/>
+            <Label Content="Сложность приготовления"/>
+            <ComboBox ItemsSource="{Binding Difficulty}" 
+                      SelectedItem="{Binding SelectedFood.Difficulty}"
+                      DisplayMemberPath="dif" Cursor="Hand"/>
+            <Label Content="Тип"/>
+            <ComboBox ItemsSource="{Binding Tip}" 
+                      SelectedItem="{Binding SelectedFood.Tip}"
+                      DisplayMemberPath="tip" Cursor="Hand" />
+        </StackPanel>
+    </Grid>
+</Window>

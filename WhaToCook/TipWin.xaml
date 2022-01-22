@@ -1,0 +1,29 @@
+﻿<Window x:Class="WhaToCook.TipWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WhaToCook"
+        mc:Ignorable="d"
+        Title="Редактор типа блюда" Height="450" Width="800">
+    <Window.Resources>
+        <ContextMenu x:Key="listMenu">
+            <MenuItem Header="Добавить" Click="AddTip"/>
+            <MenuItem Header="Удалить" Click="DeleteTip"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Tip}" 
+                 SelectedItem="{Binding SelectedTip}"
+                 DisplayMemberPath="tip"
+                 ContextMenu="{StaticResource listMenu}"/>
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedTip}">
+            <Label Content="Тип блюда"/>
+            <TextBox Text ="{Binding tip}" />
+        </StackPanel>
+    </Grid>
+</Window>
