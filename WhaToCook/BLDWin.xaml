@@ -12,6 +12,9 @@
             <MenuItem Header="Удалить" Click="DeleteBLD"/>
         </ContextMenu>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Фон BLD.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -20,9 +23,13 @@
         <ListBox ItemsSource="{Binding BLD}" 
                  SelectedItem="{Binding SelectedBLD}"
                  DisplayMemberPath="bld"
-                 ContextMenu="{StaticResource listMenu}"/>
+                 ContextMenu="{StaticResource listMenu}" FontWeight="Bold" FontFamily="Segoe Print">
+            <ListBox.Background>
+                <ImageBrush/>
+            </ListBox.Background>
+        </ListBox>
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedBLD}">
-            <Label Content="Завтрак / Второй затрак / Обед / Полдник / Ужин"/>
+            <Label Content="Завтрак / Второй затрак / Обед / Полдник / Ужин" FontWeight="Bold" FontFamily="Segoe Print"/>
             <TextBox Text ="{Binding bld}" />
 
         </StackPanel>

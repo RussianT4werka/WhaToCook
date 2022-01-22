@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhaToCook"
         mc:Ignorable="d"
-        Title="Редактор типа блюда" Height="450" Width="800">
+        Title="Редактор типа блюда" Height="450" Width="800" FontWeight="Bold" FontFamily="Segoe Print">
     <Window.Resources>
         <ContextMenu x:Key="listMenu">
             <MenuItem Header="Добавить" Click="AddTip"/>
             <MenuItem Header="Удалить" Click="DeleteTip"/>
         </ContextMenu>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Фон Tip.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -20,7 +23,11 @@
         <ListBox ItemsSource="{Binding Tip}" 
                  SelectedItem="{Binding SelectedTip}"
                  DisplayMemberPath="tip"
-                 ContextMenu="{StaticResource listMenu}"/>
+                 ContextMenu="{StaticResource listMenu}">
+            <ListBox.Background>
+                <ImageBrush/>
+            </ListBox.Background>
+        </ListBox>
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedTip}">
             <Label Content="Тип блюда"/>
             <TextBox Text ="{Binding tip}" />

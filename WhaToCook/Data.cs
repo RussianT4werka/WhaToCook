@@ -10,5 +10,6 @@ namespace WhaToCook
         public static ObservableCollection<Difficulty> Difficulty = new ObservableCollection<Difficulty>();
         public static ObservableCollection<Tip> Tip = new ObservableCollection<Tip>();
         public static ObservableCollection<KP> KP = new ObservableCollection<KP>();
+        
     }
 }

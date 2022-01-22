@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhaToCook"
         mc:Ignorable="d"
-        Title="Редактор сложности приготовления" Height="450" Width="800">
+        Title="Редактор сложности приготовления" Height="450" Width="800" FontWeight="Bold" FontFamily="Segoe Print">
     <Window.Resources>
         <ContextMenu x:Key="listMenu">
             <MenuItem Header="Добавить" Click="AddDifficulty"/>
             <MenuItem Header="Удалить" Click="DeleteDifficulty"/>
         </ContextMenu>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Фон Difficulty.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -20,13 +23,17 @@
         <ListBox ItemsSource="{Binding Difficulty}" 
                  SelectedItem="{Binding SelectedDifficulty}"
                  DisplayMemberPath="dif"
-                 ContextMenu="{StaticResource listMenu}"/>
+                 ContextMenu="{StaticResource listMenu}">
+            <ListBox.Background>
+                <ImageBrush/>
+            </ListBox.Background>
+        </ListBox>
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedDifficulty}">
             <Label Content="Легко / Средне / Сложно"/>
             <TextBox Text ="{Binding dif}" />
             <Label Content="Минимум требуемого времени"/>
             <TextBox Text ="{Binding time}" />
-            <Label Content="Кол-во порций"/>
+            <Label Content="Количество порций"/>
             <ComboBox ItemsSource="{Binding KPs}" 
                       SelectedItem="{Binding SelectedDifficulty.KP}"
                       DisplayMemberPath="kp" Cursor="Hand"/>

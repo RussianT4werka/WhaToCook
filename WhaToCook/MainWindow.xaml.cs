@@ -41,6 +41,7 @@ namespace WhaToCook
         {
             get => Data.Tip;
         }
+
         
 
 
@@ -109,6 +110,11 @@ namespace WhaToCook
         private void OpenKP(object sender, RoutedEventArgs e)
         {
             KPWin win = new KPWin();
+            win.ShowDialog();
+        }
+        private void OpenAd(object sender, RoutedEventArgs e)
+        {
+            AdWin win = new AdWin();
             win.ShowDialog();
         }
 

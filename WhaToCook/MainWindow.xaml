@@ -29,17 +29,17 @@
                 <ImageBrush/>
             </Menu.Background>
             <MenuItem Header="              Справочники" Width="236" Height="29" FontFamily="Segoe Print" FontWeight="Bold" >
-                <MenuItem Header="Завтрак/Обед/Ужин" Click="OpenBLD" Margin="0,0,14.4,0"/>
+                <MenuItem Header="Завтрак/Обед/Ужин" Click="OpenBLD" Margin="0,0,-7.2,0"/>
                 <MenuItem Header="Сложность изготовления" Click="OpenDifficulty" Margin="0,0,-16.4,0"/>
-                <MenuItem Header="Кол-во порций" Click="OpenKP"/>
-                <MenuItem Header="Тип" Click="OpenTip"/>
+                <MenuItem Header="Кол-во порций" Click="OpenKP" Margin="0,0,-4.2,0"/>
+                <MenuItem Header="Тип" Click="OpenTip" Margin="0,0,-3.2,0"/>
             </MenuItem>
         </Menu>
         <Menu Grid.Column="2">
             <Menu.Background>
                 <ImageBrush/>
             </Menu.Background>
-            <Label Content="                         Информация о блюде" FontFamily="Segoe Print" Height="27" Width="387" FontWeight="Bold" />
+            <Label Content="                         Информация о блюде" FontFamily="Segoe Print" Height="27" Width="387" FontWeight="Bold" MouseDoubleClick="OpenAd" />
         </Menu>
         <ListBox Grid.Row="1" SelectedItem="{Binding SelectedFood}"
                  ItemsSource="{Binding Foods}" 
@@ -55,11 +55,11 @@
                 DataContext="{Binding SelectedFood}"
                 Orientation="Vertical">
                 <Label Content="Название"/>
-                <TextBox Text="{Binding Nazv}" Height="23" Margin="0,0,-0.2,0"/>
+                <TextBox Text="{Binding Nazv}" Height="23" Margin="0,0,-0.2,0" />
                 <Label Content="Рецепт"/>
-                <TextBox x:Name="Recept" Text="{Binding Recept}" Height="122" Margin="0,0,-0.2,0" />
+                <TextBox x:Name="Recept" Text="{Binding Recept}" Height="122" Margin="0,0,-0.2,0" AcceptsReturn="True"  />
                 <Label Content="Интересное"/>
-                <TextBox Text="{Binding Interesting}" Height="40" Margin="0,0,-0.2,0"/>
+                <TextBox Text="{Binding Interesting}" Height="47" Margin="0,0,-0.2,0" AcceptsReturn="True" />
             </StackPanel>
             <Label Content="Завтрак/Обед/Ужин"/>
             <ComboBox ItemsSource="{Binding BLD}" 

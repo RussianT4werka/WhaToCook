@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhaToCook"
         mc:Ignorable="d"
-        Title="Редактор количества порций" Height="450" Width="800">
+        Title="Редактор количества порций" Height="450" Width="800" FontWeight="Bold" FontFamily="Segoe Print">
     <Window.Resources>
         <ContextMenu x:Key="listMenu">
             <MenuItem Header="Добавить" Click="AddKP"/>
             <MenuItem Header="Удалить" Click="DeleteKP"/>
         </ContextMenu>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Фон Difficulty.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -20,7 +23,11 @@
         <ListBox ItemsSource="{Binding KP}" 
                  SelectedItem="{Binding SelectedKP}"
                  DisplayMemberPath="kp"
-                 ContextMenu="{StaticResource listMenu}"/>
+                 ContextMenu="{StaticResource listMenu}">
+            <ListBox.Background>
+                <ImageBrush/>
+            </ListBox.Background>
+        </ListBox>
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedKP}">
             <Label Content="Количество порций"/>
             <TextBox Text ="{Binding kp}" />

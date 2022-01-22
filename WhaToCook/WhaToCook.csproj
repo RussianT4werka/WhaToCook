@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdWin.xaml.cs">
+      <DependentUpon>AdWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KP.cs" />
     <Compile Include="KPWin.xaml.cs">
       <DependentUpon>KPWin.xaml</DependentUpon>
@@ -63,6 +66,10 @@
     <Compile Include="TipWin.xaml.cs">
       <DependentUpon>TipWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BLDWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +138,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Фон меню.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Фон BLD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Фон Difficulty.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Фон Tip.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
