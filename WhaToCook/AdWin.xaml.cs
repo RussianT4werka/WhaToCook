@@ -19,6 +19,7 @@ namespace WhaToCook
     /// </summary>
     public partial class AdWin : Window
     {
+
         public AdWin()
         {
             InitializeComponent();
