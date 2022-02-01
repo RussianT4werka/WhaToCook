@@ -20,7 +20,7 @@ namespace WhaToCook
     /// <summary>
     /// Логика взаимодействия для TipWin.xaml
     /// </summary>
-    public partial class TipWin : Window, INotifyPropertyChanged
+    public partial class TipWin : Page, INotifyPropertyChanged
     {
         private Tip selectedTip;
 
@@ -63,6 +63,10 @@ namespace WhaToCook
             {
                 Tip.Remove(SelectedTip);
             }
+        }
+        private void OpenPageMainWindow(object sender, RoutedEventArgs e)
+        {
+            Data.CurrentPage = new PageMainWindow();
         }
     }
 }

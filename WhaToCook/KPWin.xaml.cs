@@ -21,7 +21,7 @@ namespace WhaToCook
     /// Логика взаимодействия для KPWin.xaml
     /// </summary>
     
-        public partial class KPWin : Window, INotifyPropertyChanged
+        public partial class KPWin : Page, INotifyPropertyChanged
         {
             private KP selectedKP;
 
@@ -66,6 +66,9 @@ namespace WhaToCook
                     KP.Remove(SelectedKP);
                 }
             }
+        private void OpenPageMainWindow(object sender, RoutedEventArgs e)
+        {
+            Data.CurrentPage = new PageMainWindow();
         }
-    
+    }  
 }

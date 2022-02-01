@@ -62,6 +62,9 @@
     <Compile Include="KPWin.xaml.cs">
       <DependentUpon>KPWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageMainWindow.xaml.cs">
+      <DependentUpon>PageMainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tip.cs" />
     <Compile Include="TipWin.xaml.cs">
       <DependentUpon>TipWin.xaml</DependentUpon>
@@ -105,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PageMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TipWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Фон Tip.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Классы\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

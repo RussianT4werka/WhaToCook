@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WhaToCook"
         mc:Ignorable="d"
-        Title="Могла быть реклама)" Height="450" Width="800" FontWeight="Bold">
+        Title="Могла быть реклама, но я бедный студент(" Height="450" Width="800" FontWeight="Bold">
     <Window.Resources>
-        <Storyboard x:Key="Storyboard1">
+        <Storyboard x:Key="Storyboard1" RepeatBehavior="Forever">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
                 <EasingColorKeyFrame KeyTime="0" Value="Blue"/>
                 <EasingColorKeyFrame KeyTime="0:0:0.5" Value="Blue"/>
@@ -56,6 +56,46 @@
                 <EasingColorKeyFrame KeyTime="0:0:1.5" Value="#FFFDFF00"/>
                 <EasingColorKeyFrame KeyTime="0:0:2" Value="#FFFF0049"/>
             </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.76"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.76"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.76"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.68"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.68"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.68"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-32.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="701.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-29.6"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-28.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-393.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-28.4"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse1">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFF4FF00"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FF000CFF"/>
+            </ColorAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-19.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="699.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-16"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse2">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-11.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="334.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-9.6"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="ellipse2">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFFF00F7"/>
+                <EasingColorKeyFrame KeyTime="0:0:1" Value="#FF00DFFF"/>
+                <EasingColorKeyFrame KeyTime="0:0:2" Value="#FF0FFF00"/>
+            </ColorAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
@@ -87,6 +127,26 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Ellipse x:Name="ellipse" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="42.336,32.967,0,0" Grid.Row="4" Grid.RowSpan="2" Stroke="Black" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="73" Margin="24.8,50.08,0,-66" Grid.Row="5" Stroke="Black" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="ellipse2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="73" Margin="23.2,13.6,0,0" Grid.RowSpan="3" Stroke="Black" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

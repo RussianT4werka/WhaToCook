@@ -20,7 +20,7 @@ namespace WhaToCook
     /// <summary>
     /// Логика взаимодействия для DifficultyWin.xaml
     /// </summary>
-    public partial class DifficultyWin : Window, INotifyPropertyChanged
+    public partial class DifficultyWin : Page, INotifyPropertyChanged
     {
         private Difficulty selectedDifficulty;
 
@@ -32,6 +32,7 @@ namespace WhaToCook
         {
             get => Data.KP;
         }
+
 
         public Difficulty SelectedDifficulty
         {
@@ -71,6 +72,9 @@ namespace WhaToCook
                 Difficulty.Remove(SelectedDifficulty);
             }
         }
-
+        private void OpenPageMainWindow(object sender, RoutedEventArgs e)
+        {
+            Data.CurrentPage = new PageMainWindow();
+        }
     }
 }

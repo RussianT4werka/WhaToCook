@@ -21,8 +21,10 @@ namespace WhaToCook
     /// Логика взаимодействия для BLDWin.xaml
     /// </summary>
 
-    public partial class BLDWin : Window, INotifyPropertyChanged
+    public partial class BLDWin : Page, INotifyPropertyChanged
     {
+        
+
         private BLD selectedBLD;
 
         public BLD SelectedBLD
@@ -42,6 +44,7 @@ namespace WhaToCook
         public BLDWin()
         {
             InitializeComponent();
+            
             DataContext = this;
         }
         void Signals([CallerMemberName] string name = null)
@@ -66,7 +69,11 @@ namespace WhaToCook
                 BLD.Remove(SelectedBLD);
             }
         }
+        private void OpenPageMainWindow(object sender, RoutedEventArgs e)
+        {
+        Data.CurrentPage = new PageMainWindow();
+        }
     }
-
-    }
+    
+}
 

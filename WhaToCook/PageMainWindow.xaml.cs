@@ -19,19 +19,10 @@ using System.Windows.Shapes;
 namespace WhaToCook
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageMainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class PageMainWindow : Page, INotifyPropertyChanged
     {
-        public Page CurrentPage
-        {
-            get => Data.CurrentPage;
-            set
-            {
-                Data.CurrentPage = value;
-                Signal();
-            }
-        }
         private Food selectedFood;
 
         public ObservableCollection<Food> Foods
@@ -51,6 +42,7 @@ namespace WhaToCook
             get => Data.Tip;
         }
 
+
         
 
 
@@ -68,17 +60,10 @@ namespace WhaToCook
             }
         }
 
-        public MainWindow()
+        public PageMainWindow()
         {
             InitializeComponent();
-            CurrentPage = new PageMainWindow();
             DataContext = this;
-            Data.CurrentPageChanged += Data_CurrentPageChanged;
-        }
-
-        private void Data_CurrentPageChanged(object sender, EventArgs e)
-        {
-            Signal("CurrentPage");
         }
 
         void Signal([CallerMemberName] string name = null)
@@ -110,27 +95,24 @@ namespace WhaToCook
 
         private void OpenBLD(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new BLDWin();
+            NavigationService.Navigate(new BLDWin());  
         }
         private void OpenDifficulty(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new DifficultyWin();
+            NavigationService.Navigate(new DifficultyWin());
         }
         private void OpenTip(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new TipWin();
+            NavigationService.Navigate(new TipWin());
         }
         private void OpenKP(object sender, RoutedEventArgs e)
         {
-            CurrentPage = new KPWin();
+            NavigationService.Navigate(new KPWin());
         }
         private void OpenAd(object sender, RoutedEventArgs e)
         {
             AdWin win = new AdWin();
             win.ShowDialog();
         }
-        
-
-        
     }
 }
