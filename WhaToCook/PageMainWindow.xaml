@@ -12,8 +12,29 @@
             <MenuItem Header="Добавить" Click="AddFood"/>
             <MenuItem Header="Удалить" Click="DeleteFood"/>
         </ContextMenu>
+        <Style x:Key="AdStyle" TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,7 +48,7 @@
             <Menu.Background>
                 <ImageBrush/>
             </Menu.Background>
-            <Label Content="                         Информация о блюде" FontFamily="Segoe Print" Height="27" Width="387" FontWeight="Bold" MouseDoubleClick="OpenAd" />
+            <Label Content="                         Информация о блюде" FontFamily="Segoe Print" Height="27" Width="387" FontWeight="Bold" MouseDoubleClick="OpenAd" Style="{DynamicResource AdStyle}" />
         </Menu>
         <ListBox Grid.Row="1" SelectedItem="{Binding SelectedFood}"
                  ItemsSource="{Binding Foods}" 
@@ -41,26 +62,26 @@
             <StackPanel 
                 DataContext="{Binding SelectedFood}"
                 Orientation="Vertical">
-                <Label Content="Название"/>
+                <Label Content="Название" FontFamily="Segoe Print"/>
                 <TextBox Text="{Binding Nazv}" Height="23" Margin="0,0,-0.2,0" />
-                <Label Content="Рецепт"/>
+                <Label Content="Рецепт" FontFamily="Segoe Print"/>
                 <TextBox x:Name="Recept" Text="{Binding Recept}" Height="122" Margin="0,0,-0.2,0" AcceptsReturn="True"  />
-                <Label Content="Интересное"/>
+                <Label Content="Интересное" FontFamily="Segoe Print"/>
                 <TextBox Text="{Binding Interesting}" Height="47" Margin="0,0,-0.2,0" AcceptsReturn="True" />
             </StackPanel>
-            <Label Content="Завтрак/Обед/Ужин"/>
+            <Label Content="Завтрак/Обед/Ужин" FontFamily="Segoe Print"/>
             <ComboBox ItemsSource="{Binding BLD}" 
                       SelectedItem="{Binding SelectedFood.BLD}"
                       DisplayMemberPath="bld" Cursor="Hand"/>
-            <Label Content="Сложность приготовления"/>
+            <Label Content="Сложность приготовления" FontFamily="Segoe Print"/>
             <ComboBox ItemsSource="{Binding Difficulty}" 
                       SelectedItem="{Binding SelectedFood.Difficulty}"
                       DisplayMemberPath="dif" Cursor="Hand"/>
-            <Label Content="Тип"/>
+            <Label Content="Тип" FontFamily="Segoe Print"/>
             <ComboBox ItemsSource="{Binding Tip}" 
                       SelectedItem="{Binding SelectedFood.Tip}"
                       DisplayMemberPath="tip" Cursor="Hand" />
         </StackPanel>
     </Grid>
-    
+
 </Page>

@@ -23,13 +23,13 @@
         <ListBox ItemsSource="{Binding BLD}" 
                  SelectedItem="{Binding SelectedBLD}"
                  DisplayMemberPath="bld"
-                 ContextMenu="{StaticResource listMenu}" FontWeight="Bold" FontFamily="Segoe Print">
+                 ContextMenu="{StaticResource listMenu}" FontFamily="Segoe Print">
             <ListBox.Background>
                 <ImageBrush/>
             </ListBox.Background>
         </ListBox>
         <StackPanel Grid.Column="1" DataContext="{Binding SelectedBLD}">
-            <Label Content="Завтрак / Второй затрак / Обед / Полдник / Ужин" FontWeight="Bold" FontFamily="Segoe Print"/>
+            <Label Content="Завтрак / Второй затрак / Обед / Полдник / Ужин" FontFamily="Segoe Print"/>
             <TextBox Text ="{Binding bld}" />
         </StackPanel>
         <Button Content="Главное меню" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97.4" Click="OpenPageMainWindow" Margin="154.4,-17.107,0,0"/>
